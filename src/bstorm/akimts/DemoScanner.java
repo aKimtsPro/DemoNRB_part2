@@ -14,6 +14,8 @@ public class DemoScanner {
 		int age = sc.nextInt();
 		sc.nextLine();
 		
+		char signe = sc.next().charAt(0);
+		
 		System.out.println("Qu'aimez vous dire pour salut?");
 		String phrase = sc.nextLine();
 		

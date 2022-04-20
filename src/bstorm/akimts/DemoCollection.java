@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class DemoCollection {
 	
@@ -59,6 +60,11 @@ public class DemoCollection {
 		
 		boolean keyContained = map.containsKey("ma clef");
 		boolean valueContained = map.containsValue("2020-10-10");
+		
+		for ( Entry<String, String> entry : map.entrySet() ) {
+			System.out.println("key: " + entry.getKey());
+			System.out.println("value: " + entry.getValue());
+		}
 		
 	}
 

@@ -1,0 +1,13 @@
+1) Créez une calculatrice.
+
+2) L'utilisateur pourra choisir à la fin 
+de chaque calcul de faire un autre calcul.
+
+3) Il pourra aussi choisir de garder le dernier
+calcul réalisé en mémoire.
+Une fois que l'utilisateur ne veut plus faire 
+de calcul, affichez les calculs qu'il a désiré 
+garder en mémoire.
+
+(BONUS)Il ne peut y avoir en mémoire qu'un 
+calcul de chaque opération (+,-,*,/,DIV,%)

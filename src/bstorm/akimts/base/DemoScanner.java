@@ -1,4 +1,4 @@
-package bstorm.akimts;
+package bstorm.akimts.base;
 
 import java.util.Scanner;
 

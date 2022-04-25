@@ -1,5 +1,6 @@
-package bstorm.akimts;
+package bstorm.akimts.base;
 
+import bstorm.akimts.oo.Employe;
 
 public class Main {
 	
@@ -129,6 +130,8 @@ public class Main {
 		
 		bRslt = !(estLigne && estBleu);
 		bRslt = !estLigne || !estBleu;
+		
+		Employe e = new Employe();
 		
 	}
 

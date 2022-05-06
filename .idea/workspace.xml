@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1bd71a36-c2f1-4831-a058-fddbe3d80034" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/bstorm/akimts/DemoCollection.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bstorm/akimts/DemoConditionnelles.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bstorm/akimts/DemoIterative.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bstorm/akimts/DemoScanner.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bstorm/akimts/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bstorm/akimts/oo/Employe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bstorm/akimts/oo/Employe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bstorm/akimts/oo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bstorm/akimts/oo/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bstorm/akimts/oo/Personne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bstorm/akimts/oo/Personne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bstorm/akimts/oo/Sportif.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bstorm/akimts/oo/Sportif.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bstorm/akimts/oo/exo/encaps/Compte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bstorm/akimts/oo/exo/encaps/Compte.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

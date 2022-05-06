@@ -1,6 +1,8 @@
 package bstorm.akimts.oo;
 
-public class Employe extends Personne {
+import bstorm.akimts.oo.interfaces.Travailleur;
+
+public class Employe extends Personne implements Travailleur {
 	
 	private double salaire;
 	int nbrAcces = 0;
@@ -13,12 +15,17 @@ public class Employe extends Personne {
 		super(nom, prenom, null);
 	}
 	
-	@Override
-	public void saluer() {
-		super.saluer();
-		System.out.println("Je suis employé");
-	}
+//	@Override
+//	public void saluer() {
+//		super.saluer();
+//		System.out.println("Je suis employé");
+//	}
 	
+	@Override
+	public void manger() {
+		System.out.println("Je mange comme un employe");
+	}
+
 	public double getSalaire() {
 		nbrAcces++;
 		return salaire;
@@ -34,4 +41,8 @@ public class Employe extends Personne {
 		return this.nbrAcces;
 	}
 
+	@Override
+	public void travailler() {
+		System.out.println("L'employe travaille");
+	}
 }

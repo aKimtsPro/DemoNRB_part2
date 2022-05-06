@@ -1,13 +1,13 @@
 package bstorm.akimts.oo;
 
-public class Personne {
+public abstract class Personne {
 
 	private String nom;
 	private String prenom;
 	private String dateNaissance;
 	
 	public Personne(String nom, String prenom, String dateNaissance) {
-		super();
+		// super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.dateNaissance = dateNaissance;
@@ -16,6 +16,8 @@ public class Personne {
 	public void saluer() {
 		System.out.println("Bonjour je suis " + this.getPrenom() + " " + getNom());
 	}
+	
+	public abstract void manger();
 	
 	public String getNom() {
 		return nom;
@@ -35,7 +37,5 @@ public class Personne {
 	public void setDateNaissance(String dateNaissance) {
 		this.dateNaissance = dateNaissance;
 	}
-	
-	
 	
 }

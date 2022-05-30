@@ -16,13 +16,13 @@ public class Entreprise {
 	
 	private static final int tva = 21;
 	
-	void engager(Employe employe){
+	void engager(Employe employe) throws EmployeAlreadyThereException{
 		if( capaMax == employes.size() )
 			throw new CapacityExceededException(capaMax);
 			
 		if( employes.contains(employe) )
 			throw new EmployeAlreadyThereException();
-			
+		
 		employes.add(employe);
 	}
 	

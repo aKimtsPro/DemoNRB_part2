@@ -22,6 +22,9 @@ public class Performance<T extends Sportif> implements Comparable<Performance<T>
 
 	@Override
 	public int compareTo(Performance<T> o) {
+		if( o == null )
+			return 1;
+		
 		return this.perf - o.perf;
 	}
 	

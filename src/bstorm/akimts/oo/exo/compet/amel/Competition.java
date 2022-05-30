@@ -7,7 +7,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import bstorm.akimts.oo.exceptions.CapacityExceededException;
+import bstorm.akimts.oo.exceptions.NotEnoughParticipantsException;
 import bstorm.akimts.oo.exo.compet.Sportif;
+import bstorm.akimts.oo.exo.compet.exceptions.AlreadySignedUpException;
+import bstorm.akimts.oo.exo.compet.exceptions.CompetitionInvalidStateException;
 
 
 public class Competition<T extends Sportif> {
@@ -24,6 +28,11 @@ public class Competition<T extends Sportif> {
 		this.capaMax = capaMax < 3 ? 3 : capaMax;
 	}
 	
+	public Competition(String nom, TypeCompet type) {
+		this.setNom(nom);
+		this.capaMax = type.getMaxParticipant();
+	}
+	
 	public Competition(String nom, int capaMax, Collection<T> participants) {
 		this(nom, capaMax);
 		for (T t : participants) {
@@ -31,16 +40,26 @@ public class Competition<T extends Sportif> {
 		}
 	}
 
-	public boolean inscrire( T aInscrire ) {
-		if( !estTerminee() && participants.size() < capaMax && !participants.containsKey(aInscrire) ) {
-			participants.put(aInscrire, null);
-			return true;
-		}	
-		return false;
+	public void inscrire( T aInscrire ) {
+		
+		if( estTerminee() ) 
+			throw new CompetitionInvalidStateException(CompetStatus.TERMINE);
+		
+		if( participants.size() >= capaMax )
+			throw new CapacityExceededException(capaMax);
+
+		if( participants.keySet().contains(aInscrire) )
+			throw new AlreadySignedUpException(aInscrire);
+		
+		participants.put(aInscrire, null);
 	}
 	
 	public boolean desinscrire( T aDesinscrire ) {
-		if( !estTerminee() && participants.containsKey(aDesinscrire) ) {
+
+		if( estTerminee() ) 
+			throw new CompetitionInvalidStateException(CompetStatus.TERMINE);
+		
+		if( participants.containsKey(aDesinscrire) ) {
 			participants.remove(aDesinscrire);
 			return true;
 		}
@@ -56,8 +75,13 @@ public class Competition<T extends Sportif> {
 	}
 	
 	public boolean terminer() {
-		if( estTerminee() )
-			return false;
+
+		if( estTerminee() ) 
+			throw new CompetitionInvalidStateException(CompetStatus.TERMINE);
+		
+		int size = participants.size();
+		if( size < 0 ) // TODO retirer
+			throw new NotEnoughParticipantsException(size);
 		
 		Performance<T>[] top3perf = new Performance[3];
 		
@@ -84,6 +108,9 @@ public class Competition<T extends Sportif> {
 	}
 
 	public Podium getPodium() {
+		if( !estTerminee() ) 
+			throw new CompetitionInvalidStateException(CompetStatus.EN_COURS);
+		
 		return podium;
 	}
 
@@ -97,6 +124,14 @@ public class Competition<T extends Sportif> {
 
 	public int getCapaMax() {
 		return capaMax;
+	}
+	
+	public int getNbrInscrits() {
+		return participants.size();
+	}
+	
+	public List<T> getParticipants() {
+		return List.copyOf( participants.keySet() );
 	}
 
 	public class Podium {
